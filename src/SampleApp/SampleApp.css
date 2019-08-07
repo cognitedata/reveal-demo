@@ -1,0 +1,21 @@
+.app {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2%;
+
+}
+.treeContainer {
+    width: 25vw;
+    height: 90vh;
+    overflow: scroll;
+}
+
+.modelContainer {
+    width: 70vw;
+}
+
+.contextMenu {
+    width: 30%;
+}

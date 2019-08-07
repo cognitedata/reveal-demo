@@ -1,0 +1,54 @@
+{
+  "name": "test",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@cognite/3d-viewer": "^6.0.2",
+    "@cognite/gearbox": "^0.0.55",
+    "@cognite/griff-react": "^0.5.0-rc.56",
+    "@cognite/sdk": "^1.7.7",
+    "@types/moment-timezone": "^0.5.12",
+    "@types/styled-components": "^4.1.16",
+    "antd": "^3.20.1",
+    "bower": "^1.8.8",
+    "firebase-tools": "^7.2.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "styled-components": "^4.3.2",
+    "three.interaction": "^0.2.2",
+    "threex.domevents": "^1.0.1",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^4.0.0",
+    "tslint-sonarts": "^1.9.0",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^4.3.4"
+  }
+}
