@@ -12,7 +12,7 @@ interface AppState {
   model?: Cognite3DModel;
   view?: Cognite3DViewer;
   selectedNode?: number;
-  height: number;
+  distance: number | null;
   visible: boolean;
   rightClickedNode?: number;
   menuStyle: {
@@ -25,7 +25,7 @@ class SampleApp extends React.Component<any, AppState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      height: 510,
+      distance: null,
       visible: false,
       menuStyle: {},
     };
@@ -36,6 +36,7 @@ class SampleApp extends React.Component<any, AppState> {
   }
 
   componentDidMount() {
+    // Disable the right click menu when clicking outside of it
     document.addEventListener('click', () => {
       this.setState({
         visible: false,
@@ -44,6 +45,7 @@ class SampleApp extends React.Component<any, AppState> {
   }
 
   onReady = (threeDviewer: Cognite3DViewer, threeDmodel: Cognite3DModel) => {
+    // Get the model and view of the 3d-viewer
     this.setState({
       model: threeDmodel,
       view: threeDviewer,
@@ -59,8 +61,10 @@ class SampleApp extends React.Component<any, AppState> {
         const { offsetX, offsetY } = event;
         const intersection = viewer.getIntersectionFromPixel(offsetX, offsetY);
         if (intersection !== null) {
+          // Get the location of the clicked point
           const point = intersection.point;
           if (start) {
+            // If a first point has already been clicked, calulate the distance between the two points
             const vector = new THREE.Vector3(
               point.x - start.x,
               point.y - start.y,
@@ -85,16 +89,20 @@ class SampleApp extends React.Component<any, AppState> {
             );
             mesh.position.copy(start);
             mesh.position.lerp(point, 0.5);
-
             viewer.addObject3D(mesh);
+            this.setState({ distance: vector.length() });
 
+            // Disable the click handler after the user chooses two points
             viewer.off('click', handleClick);
           } else {
+            // If no point has been clicked before, store the clicked point and ask the user to choose
+            // a second point
             start = point;
             message.info('Click to choose another point');
           }
         }
       };
+      // Enable the click handler
       viewer.on('click', handleClick);
     }
   };
@@ -122,6 +130,7 @@ class SampleApp extends React.Component<any, AppState> {
       return;
     }
     const box = this.state.model.getBoundingBox(nodeId);
+    // Return if the bounding box is infinite
     if (
       box.min.x + box.min.y + box.min.z === Infinity ||
       box.max.x + box.max.y + box.max.z === -Infinity
@@ -137,7 +146,6 @@ class SampleApp extends React.Component<any, AppState> {
         theme="dark"
         style={this.state.menuStyle}
         onClick={(params: ClickParam) => {
-          console.log(this.state.rightClickedNode);
           if (this.state.rightClickedNode) {
             switch (params.key) {
               case 'hide': {
@@ -180,6 +188,7 @@ class SampleApp extends React.Component<any, AppState> {
               });
             }}
             onRightClick={(e: OnRightClickNodeTreeParams) => {
+              // Set the poistion where the right click menu pops up
               this.setState({
                 visible: true,
                 menuStyle: {
@@ -202,12 +211,12 @@ class SampleApp extends React.Component<any, AppState> {
               onClick={(id: number) => {
                 console.log(id);
               }}
-              // slice={{ y: { coord: 500, direction: false } }}
               slider = {{y: {min: -510, max: -460}}}
             />
           </span>
         </div>
         <Button onClick={this.startMeasurement}>Start Measurement</Button>
+        <h3 id = "length">Length: {this.state.distance}</h3>
       </div>
     );
   }
