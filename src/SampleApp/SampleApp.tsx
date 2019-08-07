@@ -123,8 +123,8 @@ class SampleApp extends React.Component<any, AppState> {
     }
     const box = this.state.model.getBoundingBox(nodeId);
     if (
-      box.min.x + box.min.y + box.min.z == Infinity ||
-      box.max.x + box.max.y + box.max.z == -Infinity
+      box.min.x + box.min.y + box.min.z === Infinity ||
+      box.max.x + box.max.y + box.max.z === -Infinity
     ) {
       return;
     }
