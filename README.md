@@ -20,4 +20,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 In the front page, type in a valid api key of 3ddemo project and press 'submit' button to render the main
 application.
-The left tree structure represents the node hierarchy of the model. The user can right click on nodes to hide the subtrees or focus the camera on them. The upper-right slider can be dragged to slice the model and the buttom-right 'start measurement' button is used to calculate distance between two points.
+The left tree structure represents the node hierarchy of the model. The user can right click on nodes to hide the subtrees or focus the camera on them. The upper-right slider can be dragged to slice the model and the buttom-right 'start measurement' button is used to calculate distance between two points. The user can also take screenshots by pressing the "take screenshot button".

@@ -211,6 +211,10 @@ class SampleApp extends React.Component<any, AppState> {
               onClick={(id: number) => {
                 console.log(id);
               }}
+              showScreenshotButton = {true}
+              onScreenshot = {(url: string) => {
+                window.open(url);
+              }}
               slider = {{y: {min: -510, max: -460}}}
             />
           </span>

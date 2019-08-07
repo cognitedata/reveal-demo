@@ -19,7 +19,7 @@ class Authentication extends React.Component<{}, AuthState> {
     render() {
         return (
             <div id = "container">
-            <div id = "title"><h2>Type In an API Key</h2></div>
+            <div id = "title"><h2>Enter an API Key</h2></div>
             <div id = "input">
                 <Input onChange = {(e: React.ChangeEvent<HTMLInputElement>) => {
                     this.setState({ value: e.target.value });
