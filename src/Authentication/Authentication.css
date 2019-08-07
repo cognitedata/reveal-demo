@@ -1,11 +1,19 @@
 #container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    height: 100vh;
 }
 #input {
     display: flex;
     width: 60vw;
-    align-items: center;
-    /* margin: auto; */
-    height: 100vh;
+    height: 5vh;
+    align-self: flex-start;
+}
+
+#title {
+    height: 5vh;
+    width: 100vw;
+    text-align: center;
+    align-self: flex-end;
 }

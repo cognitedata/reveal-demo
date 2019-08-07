@@ -19,10 +19,10 @@ class Authentication extends React.Component<{}, AuthState> {
     render() {
         return (
             <div id = "container">
+            <div id = "title"><h2>Type In an API Key</h2></div>
             <div id = "input">
                 <Input onChange = {(e: React.ChangeEvent<HTMLInputElement>) => {
                     this.setState({ value: e.target.value });
-                    console.log(this.state.value);
                 }}></Input>
                 <Link to = {{
                     pathname: '/sampleApp',

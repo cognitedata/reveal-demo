@@ -1,0 +1,15 @@
+language: node_js
+env:
+  matrix:
+  - NODE_OPTIONS=--max_old_space_size=4096
+node_js:
+- '10'
+sudo: false
+install:
+- yarn
+script:
+- yarn build
+deploy:
+  provider: firebase
+  token:
+    secure: wdaCxeEwMGAOLzZZPo9xjXmEQ1TB8WYLbv5k7mIOsvBgwByNG0NAMoPgivtJOP0vzbvFidhAHFLhYLBUzBCFRgqB5B5V9n4GN5Fp/oOWYrFf/yS2WVsLsQ7l0Hzffvc/1s4P3MrLV83+NaaZZup7wBc+i85CmgZG3bxzZYOb4X1RoYceTegu6pxmmHmDvzhRDwKkqjuNnhIduE0TetpaCempxNmr4wsRbY04JDJrMcEYJIO5R9gQ61IDS/0cTlDz+lY7SiTbbg9MWAyjcHY9CIP3LacubJ7XSKtoYYXhbVpEZ7NE2wqmbi3rGiYarhSZY9tepSGXggxMYh+LTCdRv9l6YvdMTuVTFX3UjSrV90YWw3hT9ZpMcqeSkCShqr3mHph9Kvw3YOWcOnyvCBVV/W/7JIb3s49FcyS8Le7fMG0wtVCCZKku+SrAtIwrtJT4/aDk39qdp6pvH7M9SCYmsnCw2CRzU4Tyd2bsFZJ8v6pAeZp2MbEO3mGXcyiZqE+QRCnqqnYfrGok4MPbKbe7KW/+TZe5wDPjC/JvuQn5ptZyIO0VKIBQMYdwESI/Y+iVDiRpeSMSjjDVe7fhs0I1BjoqHrfT9DX4o/hQzWOtVs87Bw4Ttv5W8ZA1UHDuZEMvwCUta+2FLx2A/hsaoWlnph9k2wVu1oW/qG80cY9304E=
